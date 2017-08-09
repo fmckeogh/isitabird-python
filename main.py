@@ -26,17 +26,22 @@ def upload():
 
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-        return redirect(url_for('loading'))
+        os.system("./infer.sh " + filename)
+
+        return redirect(url_for('loading', hash=filename))
 
 @app.route('/loading')
 def loading():
-    return render_template('loading.html')
+    hash = request.args.get('hash')
+    return render_template('loading.html', hash=hash)
 
 @app.route('/results')
 def results():
-    output = open("uploads/4461d6a1a2119375a271126ecf937ba915574b2ac50dffa85c06222788110be1ade75544a55c01c62bba902b9a96813cd60f8d72f863b45098943de8127d24a4.txt", "r").read()
-    bird = output.rpartition('-')[0]
-    notbird = output.rpartition('-')[2]
+    filename = request.args.get('hash')
+    filepath = "uploads/" + filename + ".txt"
+    output = open(filepath, "r").read()
+    bird = output.rpartition('-')[0].rstrip()
+    notbird = output.rpartition('-')[2].rstrip()
     return render_template('results.html', bird=bird, notbird=notbird)
 
 
