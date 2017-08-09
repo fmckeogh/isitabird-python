@@ -1,2 +1,1 @@
-<h2 style="color:green;">Yes</h2>
-<p>(100.00% bird, 0.00% not bird)</p>
+100.00_0.00
