@@ -7,11 +7,18 @@
     <body>
         <div class="container">
             <div class="header">
-                <h1 class="text-muted">Is it a bird?</h1>
+                <h1><a href="/" style="color:#313131">Is it a bird?</a></h1>
             </div>
             <hr/>
             <div>
-
+                <script>
+                    if ({{bird}} > {{notbird}}) {
+                        document.write('<h2 style="color:green;">Yes</h2>');
+                    } else {
+                        document.write('<h2 style="color:red;">No</h2>');
+                    }
+                document.write('<p>({{bird}}% bird, {{notbird}}% not bird)</p>');
+                </script>
             </div>
         </div>
     </body>

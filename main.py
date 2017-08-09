@@ -26,15 +26,18 @@ def upload():
 
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-        return redirect(url_for('loading',filename=filename))
+        return redirect(url_for('loading'))
 
 @app.route('/loading')
-def loading(filename):
+def loading():
     return render_template('loading.html')
 
 @app.route('/results')
 def results():
-    return render_template('results.html')
+    output = open("uploads/4461d6a1a2119375a271126ecf937ba915574b2ac50dffa85c06222788110be1ade75544a55c01c62bba902b9a96813cd60f8d72f863b45098943de8127d24a4.txt", "r").read()
+    bird = output.rpartition('-')[0]
+    notbird = output.rpartition('-')[2]
+    return render_template('results.html', bird=bird, notbird=notbird)
 
 
 
