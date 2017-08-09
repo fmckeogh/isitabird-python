@@ -42,6 +42,9 @@ def results():
     output = open(filepath, "r").read()
     bird = output.rpartition('-')[0].rstrip()
     notbird = output.rpartition('-')[2].rstrip()
+
+    os.system("rm uploads/" + filename + "*")
+
     return render_template('results.html', bird=bird, notbird=notbird)
 
 
