@@ -45,7 +45,14 @@ img = scipy.misc.imresize(img, (32, 32), interp="bicubic").astype(np.float32, ca
 
 prediction = model.predict([img])
 
+filename = args.image + ".txt"
+output = open(filename,"w+")
+output.write("{0:.2f}".format(prediction[0][1] * 100) + "-" + "{0:.2f}".format(prediction[0][0] * 100))
+output.close()
+
+"""
 print ("{0:.2f}".format(prediction[0][1] * 100) + "-" + "{0:.2f}".format(prediction[0][0] * 100));
+"""
 
 """
 if (prediction[0][1] > prediction[0][0]):
