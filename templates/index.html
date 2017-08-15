@@ -3,7 +3,7 @@
     <head>
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
             rel="stylesheet">
-            </head>
+    </head>
     <body>
         <div class="container">
             <div class="header">
@@ -11,13 +11,31 @@
             </div>
             <hr/>
             <div>
-
                 <form action="upload" method="post" enctype="multipart/form-data">
                     <input type="file" name="file"><br /><br />
                         <input type="submit" value="Upload">
-                            </form>
+                </form>
             </div>
         </div>
     </body>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">View source on GitHub</p>
+            <div text-align-last: right;>
+                <img src="/static/logo.png" alt="" style="width:32px;height:32px;">
+            <div>
+        </div>
+    </footer>
 </html>
 
+<style>
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 60px;
+        line-height: 60px; /* Vertically center the text there */
+        background-color: #f5f5f5;
+    }
+</style>
